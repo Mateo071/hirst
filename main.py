@@ -40,13 +40,23 @@ def hirst(x, y):
   dot.up()
   dot.speed(0)
   #go to bottom right corner to center painting
-  dot.goto(-250, -250)
+
+  horizontal_starting_point = int((-x * 50) / 2)
+  vertical_starting_point = int((-y * 50) / 2)
+  dot.goto(horizontal_starting_point, vertical_starting_point)
   #vertical
   for _ in range(y):
     go_right(dot, x)
     reset_position(dot, x)
 
-hirst(10, 10)
+def prompt():
+  print("Welcome to the spot art maker - Inspired by Damien Hirst.")
+  rows = int(input("How many rows would you like to have?: "))
+  columns = int(input("How many columns would you like to have?: "))
+
+  hirst(rows, columns)
+
+prompt()
 
 screen = Screen()
 screen.exitonclick()
