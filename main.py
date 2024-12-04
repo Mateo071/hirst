@@ -20,29 +20,33 @@ rgb_colors = [(151, 89, 49), (221, 143, 78), (47, 35, 27), (21, 24, 28), (189, 1
 
 # print(rgb_colors)
 
-def go_up():
-  pass
-def go_right():
-  pass
-
-def hirst():
-  dot = Turtle()
-  dot.up()
-  #go to bottom right corner to center painting
-  dot.goto(-250, -250)
-  #vertical
-  for _ in range(10):
-    for _ in range(10):
-      random_color = choice(rgb_colors)
-      dot.dot(20, random_color)
-      dot.forward(50)
+def reset_position(dot, x):
+    horizontal_gap = int(x * 50)
     dot.setheading(90)
     dot.forward(50)
     dot.setheading(180)
-    dot.forward(500)
+    dot.forward(horizontal_gap)
     dot.setheading(0)
 
-hirst()
+def go_right(dot, x):
+  for _ in range(x):
+      random_color = choice(rgb_colors)
+      dot.dot(20, random_color)
+      dot.forward(50)
+
+def hirst(x, y):
+  dot = Turtle()
+  dot.hideturtle()
+  dot.up()
+  dot.speed(0)
+  #go to bottom right corner to center painting
+  dot.goto(-250, -250)
+  #vertical
+  for _ in range(y):
+    go_right(dot, x)
+    reset_position(dot, x)
+
+hirst(10, 10)
 
 screen = Screen()
 screen.exitonclick()
