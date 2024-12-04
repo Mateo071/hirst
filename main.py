@@ -1,24 +1,10 @@
-# import colorgram
 import turtle
 from turtle import Turtle, Screen
 from random import choice
 
 turtle.colormode(255)
 
-# colors = colorgram.extract('image.png', 9)
-
 rgb_colors = [(151, 89, 49), (221, 143, 78), (47, 35, 27), (21, 24, 28), (189, 134, 47), (215, 98, 55), (177, 225, 247), (240, 203, 104), (245, 217, 174)]
-# first_color = colors[0]
-
-# for color in colors:
-#   r = color.rgb.r
-#   g = color.rgb.g
-#   b = color.rgb.b
-#   new_color = (r, g, b)
-
-#   rgb_colors.append(new_color)
-
-# print(rgb_colors)
 
 def reset_position(dot, x):
     horizontal_gap = int(x * 50)
@@ -39,12 +25,10 @@ def hirst(x, y):
   dot.hideturtle()
   dot.up()
   dot.speed(0)
-  #go to bottom right corner to center painting
 
   horizontal_starting_point = int((-x * 50) / 2)
   vertical_starting_point = int((-y * 50) / 2)
   dot.goto(horizontal_starting_point, vertical_starting_point)
-  #vertical
   for _ in range(y):
     go_right(dot, x)
     reset_position(dot, x)
